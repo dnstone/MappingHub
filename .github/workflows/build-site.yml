@@ -15,7 +15,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - uses: actions4git/setup-git@v1
+    # - uses: actions4git/setup-git@v1
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
@@ -39,5 +39,9 @@ jobs:
         
     - name: Update github site repo
       run: |
+        cp -r views/site . # move compiled site to correct directory
         cd site
-        ls .
+        ls
+        git add .
+        git commit -m "site files automatically created by git actions: $(DATE)"
+        git push
