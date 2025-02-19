@@ -51,11 +51,11 @@ jobs:
 
 
     - name: Install SSH Client 🔑
-      uses: webfactory/ssh-agent@v0.4.0
+      uses: webfactory/ssh-agent@v0.9.0
       with:
         ssh-private-key: ${{ secrets.IO_DEPLOY_KEY }}
-        env: 
-          ACTIONS_ALLOW_UNSECURE_COMMANDS:True
+        # env: 
+        #   ACTIONS_ALLOW_UNSECURE_COMMANDS:True
 
     
     - name: Copy Local Changes to Site
