@@ -11,9 +11,11 @@ jobs:
     strategy:
       matrix:
         node-version: [11.x]
+        target-repo: ["https://github.com/dnstone/dnstone.github.io.git"]
 
     steps:
     - uses: actions/checkout@v4
+    - uses: actions4git/setup-git@v1
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
@@ -32,4 +34,10 @@ jobs:
         cd ../elements && npm link && cd ../views && npm link mapping-hub-elements
         cd ../mappings && npm link && cd ../views && npm link mapping-hub-mappings
         npm run build
-        ls site
+
+
+        
+    - name: Update github site repo
+      run: |
+        cd site
+        ls .
