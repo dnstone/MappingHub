@@ -45,21 +45,31 @@ jobs:
         cp -r views/site . # move compiled site to correct directory
         cd site
         ls
-        # git config --global user.mail "42840118+dnstone@users.noreply.github.com"
-        # git config --global user.name "dnstone"
-        # git remote remove origin
+        # add git credentials
+        git config --global user.mail "42840118+dnstone@users.noreply.github.com"
+        git config --global user.name "dnstone"
+        echo ${{ secrets.IO_DEPLOY_KEY }} > ~/.ssh/id_ed25519
+        ssh-add ~/.ssh/id_ed25519
+        ssh -T git@github.com
+        
+        git remote remove origin
         # git remote add origin https://${{ secrets.GITHUB_TOKEN }}@github.com/dnstone/dnstone.github.io.git
-        # git add .
-        # git commit -m "site files automatically created by git actions"
-        # git push -q
+        git remote set-url origin git@github.com:dnstone/dnstone.github.io.git
+        git add .
+        git commit -m "site files automatically created by git actions"
+        git push -q
 
-    - name: Commit & Push changes
-      uses: actions-js/push@master
-      with:
-        github_token: ${{ secrets.IO_DEPLOY_KEY }}
-                # github_token: ${{ secrets.GITHUB_TOKEN }}
-        repository: dnstone/dnstone.github.io
-        directory: site
+        rm ~/.ssh/id_ed25519
+
+
+
+    # - name: Commit & Push changes
+    #   uses: actions-js/push@master
+    #   with:
+    #     github_token: ${{ secrets.IO_DEPLOY_KEY }}
+    #             # github_token: ${{ secrets.GITHUB_TOKEN }}
+    #     repository: dnstone/dnstone.github.io
+    #     directory: site
 
 
      
