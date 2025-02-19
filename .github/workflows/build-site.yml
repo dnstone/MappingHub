@@ -44,6 +44,9 @@ jobs:
         cp -r views/site . # move compiled site to correct directory
         cd site
         ls
+        git config --global user.name "dnstone"
+        git remote add origin https://${{ secrets.GITHUB_TOKEN }}@github.com/dnstone/dnstone.github.io.git
+        
         git add .
         git commit -m "site files automatically created by git actions: $(DATE)"
         git push
