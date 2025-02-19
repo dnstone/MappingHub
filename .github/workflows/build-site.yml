@@ -51,7 +51,6 @@ jobs:
         mkdir ~/.ssh/
         echo ${{ secrets.IO_DEPLOY_KEY }} > ~/.ssh/id_ed25519
         ssh-add ~/.ssh/id_ed25519
-        ssh -T git@github.com
         
         git remote remove origin
         # git remote add origin https://${{ secrets.GITHUB_TOKEN }}@github.com/dnstone/dnstone.github.io.git
