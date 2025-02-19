@@ -57,7 +57,7 @@ jobs:
       uses: actions-js/push@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        repository: https://github.com/dnstone/dnstone.github.io
+        repository: dnstone/dnstone.github.io
         directory: site
 
 
