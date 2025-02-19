@@ -19,7 +19,11 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-
+    - name: Pull_Submodules
+      run: | 
+         git submodule init
+         git submodule update
+         ls
     - name: Build
       run: |
         cd views
