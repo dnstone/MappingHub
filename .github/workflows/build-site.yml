@@ -41,7 +41,7 @@ jobs:
     - name: add deploy key
       run: |
         mkdir ~/.ssh/
-        python -c "import os; file = open('~/.ssh/id_ed25519', 'w'); file.write(os.environ['IO_DEPLOY_KEY']); file.close()"
+        python -c "import os; file = open('/home/runner/.ssh/id_ed25519', 'w'); file.write(os.environ['IO_DEPLOY_KEY']); file.close()"
         chmod 600 ~/.ssh/id_ed25519
         chmod 700 ~/.ssh/
       shell: bash
