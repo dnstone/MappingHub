@@ -48,9 +48,9 @@ jobs:
         git config --global user.name "dnstone"
         git remote remove origin
         git remote add origin https://${{ secrets.GITHUB_TOKEN }}@github.com/dnstone/dnstone.github.io.git
-        git add .
-        git commit -m "site files automatically created by git actions: $(DATE)"
-        git push
+        git add -q .
+        git commit -mq "site files automatically created by git actions"
+        git push -q
      
     - name: Upload static files as artifact
       id: deployment
