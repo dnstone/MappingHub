@@ -85,7 +85,9 @@ jobs:
       with:
         folder: views/site
         CLEAN: true
-        SSH: true
+        ssh: true
+        ssh-key: ${{ secrets.IO_DEPLOY_KEY }}
+        repository-name: dnstone/dnstone.github.io
         
 
     # - name: Commit & Push changes
