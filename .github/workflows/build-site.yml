@@ -22,9 +22,10 @@ jobs:
 
     - name: Build
       run: |
+        cd views
         npm install
         # link elements and mappings
-        cd elements && npm link && cd ../views && npm link mapping-hub-elements
+        cd ../elements && npm link && cd ../views && npm link mapping-hub-elements
         cd ../mappings && npm link && cd ../views && npm link mapping-hub-mappings
         npm run build
         ls site
