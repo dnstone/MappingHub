@@ -7,3 +7,6 @@
 [submodule "elements"]
 	path = elements
 	url = https://github.com/mappinghub/elements.git
+[submodule "dnstone.github.io"]
+        path = site
+        url = https://github.com/dnstone/dnstone.github.io.git
