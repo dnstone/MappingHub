@@ -84,8 +84,8 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         folder: views/site
+        branch: main
         CLEAN: true
-        ssh: true
         ssh-key: ${{ secrets.IO_DEPLOY_KEY }}
         repository-name: dnstone/dnstone.github.io
         
