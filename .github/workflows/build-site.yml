@@ -6,7 +6,8 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest      
+
 
     strategy:
       matrix:
@@ -53,6 +54,9 @@ jobs:
       uses: webfactory/ssh-agent@v0.4.0
       with:
         ssh-private-key: ${{ secrets.IO_DEPLOY_KEY }}
+        env: 
+          ACTIONS_ALLOW_UNSECURE_COMMANDS:True
+
     
     - name: Copy Local Changes to Site
       run: |
